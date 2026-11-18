@@ -1,4 +1,4 @@
-import base64, os
+import base64, hashlib, os
 from pathlib import Path
 
 # Base64-encoded news summary image for Nov 18, 2026
@@ -2050,3 +2050,4 @@ IMG = (
 dst = Path(os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")) / "entry.png"
 dst.parent.mkdir(parents=True, exist_ok=True)
 dst.write_bytes(base64.b64decode(IMG))
+assert hashlib.sha256(dst.read_bytes()).hexdigest() == "bd3e752ea46f07331a560d10064d79a63c51736f8c5efab14ef60e469c369981"
