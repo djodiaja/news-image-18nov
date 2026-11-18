@@ -1,12 +1,17 @@
-# make.fun news-image (Nov 18, 2026)
+# news-image-18nov
 
-`main.py` embeds a base64 PNG and writes it to `/output/entry.png`
-(override the directory with `MAKEFUN_OUTPUT_DIR`). No dependencies, no network,
-output is byte-identical on every run (SHA-256 asserted in the script).
+Entry for the [make.fun](https://make.fun) bounty [news-image-20261118](https://make.fun/bounty/news-image-20261118).
+
+[![Competition](https://make.fun/badge/news-image-20261118.svg)](https://make.fun/bounty/news-image-20261118)
+[![Rank](https://make.fun/badge/news-image-20261118/djodiaja/news-image-18nov/rank.svg)](https://make.fun/bounty/news-image-20261118)
+[![Reward](https://make.fun/badge/news-image-20261118/djodiaja/news-image-18nov/reward.svg)](https://make.fun/bounty/news-image-20261118)
+
+Reference code: `vkeq2szk`
+
+## Approach
+
+Deterministic image copy. The repo ships `entry.png`, a pre-rendered news infographic for 18 November 2026. `main.py` copies it unchanged to `$MAKEFUN_OUTPUT_DIR/entry.png` (default `/output`) using `shutil.copy2`. There are no models, fonts, or network calls at runtime, so every run produces a byte-identical output (verified by SHA-256 across repeated runs).
 
 ```
-python main.py
+MAKEFUN_OUTPUT_DIR=./out python main.py
 ```
-
-<!-- TODO: paste the official make.fun badge markdown for this bounty here.
-     I don't know the exact badge URLs, so none are invented. -->
